@@ -1,13 +1,6 @@
-# Sample Hardhat Project
+# 给我买一份猪脚饭 buy me a pork trotter rice
+猪脚饭的滋味总是浓郁而温暖，仿佛能填满漂泊的日子。但每一口的满足里，藏着说不出的怅然，像记忆中那熟悉的家常味道，遥不可及，却挥之不去。
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
+合约地址：0xA8d23986408D97F069Ce04091Be9ad159f38ba65
 
-Try running some of the following tasks:
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.js
-```
