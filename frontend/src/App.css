@@ -69,7 +69,7 @@ body {
 }
 
 /* 按钮 */
-.send-button {
+.send-button, .connect-button {
   padding: 15px;
   font-size: 16px;
   border: none;
@@ -82,8 +82,22 @@ body {
 
 .send-button:hover {
   background-color: #e67a36;
-  transform: scale(1.05);
 }
+
+.connect-button{
+  background-color: #3ec759;
+}
+.connect-button:hover {
+  background-color: #44d431;
+}
+
+/* .send-button:disabled {
+  background-color: #e0e0e0; /* 灰色背景 */
+  color: #a0a0a0;          /* 灰色文字 */
+  border-color: #d0d0d0;   /* 灰色边框 */
+  cursor: not-allowed;     /* 禁止鼠标 */
+  opacity: 0.6;            /* 半透明效果 */
+} */
 
 /* 响应式 */
 @media (max-width: 500px) {
