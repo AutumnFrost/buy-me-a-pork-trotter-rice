@@ -12,10 +12,40 @@ function Form() {
     contract: null,
   });
   const [name, setName] = useState()
-  const [account, setAccount] = useState()
+  const [message, setMessage] = useState()
 
-  const handleSend = () => {
-    alert(`Name: ${name}, Password: ${account}`);
+  const handleSend = async () => {
+
+    if(!name?.trim() || !message?.trim()) {
+      console.log(name, message)
+      alert("Cannot be empty.");
+      return;
+    }
+
+    const { contract } = state;
+    if (!contract) {
+      alert("Contract not available. Please connect your wallet.");
+      return;
+    }
+
+
+    try {
+      const amount = { value: ethers.parseEther("0.001") };
+
+      const transaction = await contract.buyRice(name, message, amount);
+      await transaction.wait();
+
+      console.log("Transaction is done");
+
+      setName("");
+      setMessage("");
+    } catch (error) {
+      console.error("Error:", error);
+      alert("Transaction failed! Please check console for details.");
+    } finally {
+      alert("thanks! for your gift");
+    }
+
   };
 
   /**
@@ -48,14 +78,16 @@ function Form() {
           value={name}
           onChange={(e) => setName(e.target.value)}
           className="input-field"
+          maxLength={10}
         />
-        <label className="label">地址</label>
+        <label className="label">留言</label>
         <input
           type="text"
-          placeholder="请输入地址"
-          value={account}
-          onChange={(e) => setAccount(e.target.value)}
+          placeholder="请输入留言"
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
           className="input-field"
+          maxLength={30}
         />
         {state.contract && <button className="send-button" onClick={handleSend}>
           赏
